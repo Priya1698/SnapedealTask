@@ -20,71 +20,45 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import com.sun.jna.platform.FileUtils;
-
 public class Task {
 	static WebDriver driver;
-
-	public static WebDriver browserLaunch() {
+public static WebDriver browserLaunch() {
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Users\\Priya\\eclipse-workspace\\Maven1st\\driver\\chromedriver.exe");
-		return driver = new ChromeDriver();
-	}
-
-	public static void webBage(String n) {
-		driver.get(n);
-
-	}
-
-	public static void endBage() {
-		driver.quit();
-	}
-
-	public static WebElement findIdBath(String value) {
+		return driver = new ChromeDriver();}
+    public static void webBage(String n) {
+		driver.get(n);}
+    public static void endBage() {
+		driver.quit();}
+    public static WebElement findIdBath(String value) {
 		WebElement loc1 = driver.findElement(By.id(value));
-		return loc1;
-
-	}
-
-	public static WebElement findClassBath(String value) {
+		return loc1;}
+    public static WebElement findClassBath(String value) {
 		WebElement loc2 = driver.findElement(By.className(value));
-		return loc2;
-	}
+		return loc2;}
 	public static WebElement findXpath(String value) {
 		WebElement loc3 = driver.findElement(By.xpath(value));
-		return loc3;
-		}
-
+		return loc3;}
 	public static void textValue(WebElement e, String value) {
-
-		e.sendKeys(value);
-	}
-
+		e.sendKeys(value);}
 	public static void btnClick(WebElement e) {
-		e.click();
-	}
-
+		e.click();}
 	public static void scrShot(String path) throws IOException {
 		TakesScreenshot tk = (TakesScreenshot) driver;
 		File s = tk.getScreenshotAs(OutputType.FILE);
 		File d = new File(path);
 		org.apache.commons.io.FileUtils.copyFile(s, d);
-	}
+		}
 	public static String parentWindow() {
 		String pw = driver.getWindowHandle();
-		return pw;
-	}
+		return pw;}
 	public static Set<String> allWindow() {
 		Set<String> aw = driver.getWindowHandles();
-		return aw;
-		
-	}
-
+		return aw;}
 	public static String getData(int rowNo, int cellNo) throws Throwable {
 		String name=null;
 		File loc = new File("C:\\Users\\Priya\\eclipse-workspace\\Maven1st\\TestData\\PriyaC.xlsx");
-		
 		FileInputStream stream = new FileInputStream(loc);
 		Workbook w = new XSSFWorkbook(stream);
 		Sheet s = w.getSheet("Priya");
